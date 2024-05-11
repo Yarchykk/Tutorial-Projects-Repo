@@ -98,6 +98,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_k51ar"]
 
 [node name="Coin" type="Area2D"]
+collision_mask = 2
 script = ExtResource("1_ecu37")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -108,3 +109,5 @@ frame_progress = 0.870002
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.473774, 0.473774)
 shape = SubResource("CircleShape2D_k51ar")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
