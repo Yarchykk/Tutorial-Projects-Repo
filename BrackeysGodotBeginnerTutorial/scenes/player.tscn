@@ -42,6 +42,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_rtl1v"]
 
 [node name="Player" type="CharacterBody2D"]
+light_mask = 2
 z_index = 5
 collision_layer = 2
 script = ExtResource("1_sywfp")
