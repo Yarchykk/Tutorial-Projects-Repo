@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://b0d0c7hkwylwc"]
+[gd_scene load_steps=15 format=3 uid="uid://b0d0c7hkwylwc"]
 
 [ext_resource type="PackedScene" uid="uid://hh0c6lfvgmg2" path="res://scenes/player.tscn" id="1_7l52i"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_ksaif"]
 [ext_resource type="Texture2D" uid="uid://ddfqegxeapcw6" path="res://assets/sprites/world_tileset.png" id="2_dh86y"]
 [ext_resource type="PackedScene" uid="uid://cunb6scc36vpu" path="res://scenes/platform.tscn" id="3_rv75g"]
 [ext_resource type="PackedScene" uid="uid://ibbagjl42rub" path="res://scenes/coin.tscn" id="4_r50pk"]
 [ext_resource type="PackedScene" uid="uid://i1fur71m7c0s" path="res://scenes/kill_zone.tscn" id="5_l3p50"]
 [ext_resource type="PackedScene" uid="uid://q3nasthvhm2m" path="res://scenes/slime.tscn" id="6_70l2o"]
+[ext_resource type="FontFile" uid="uid://dbabbedqwh4t5" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="7_p1ate"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nsgu7"]
 texture = ExtResource("2_dh86y")
@@ -454,6 +456,23 @@ _data = {
 [node name="Game" type="Node2D"]
 scale = Vector2(1.01176, 1)
 
+[node name="Game Manager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_ksaif")
+
+[node name="ScoreLabel" type="Label" parent="Game Manager"]
+offset_left = 82.0
+offset_top = 3.0
+offset_right = 179.0
+offset_bottom = 22.0
+scale = Vector2(0.972436, 0.983582)
+theme_override_colors/font_color = Color(0.0784314, 0.596078, 0.862745, 1)
+theme_override_fonts/font = ExtResource("7_p1ate")
+theme_override_font_sizes/font_size = 8
+text = "Coins Collected: X"
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ytsn2")
 format = 2
@@ -518,3 +537,38 @@ position = Vector2(-39.5351, 32)
 
 [node name="Slime3" parent="." instance=ExtResource("6_70l2o")]
 position = Vector2(312.327, -64)
+
+[node name="Labels" type="Node" parent="."]
+
+[node name="Label" type="Label" parent="Labels"]
+offset_left = -63.0
+offset_top = -25.0
+offset_right = 34.0
+offset_bottom = -13.0
+scale = Vector2(0.972436, 0.983582)
+theme_override_colors/font_color = Color(0.0980392, 0.313726, 0.752941, 1)
+theme_override_fonts/font = ExtResource("7_p1ate")
+theme_override_font_sizes/font_size = 8
+text = "Space to Jump"
+
+[node name="Label2" type="Label" parent="Labels"]
+offset_left = 186.0
+offset_top = 51.0
+offset_right = 283.0
+offset_bottom = 63.0
+scale = Vector2(0.972436, 0.983582)
+theme_override_colors/font_color = Color(0.0117647, 0.14902, 0.34902, 1)
+theme_override_fonts/font = ExtResource("7_p1ate")
+theme_override_font_sizes/font_size = 8
+text = "Get Fucked"
+
+[node name="Label3" type="Label" parent="Labels"]
+offset_left = 282.0
+offset_top = -106.0
+offset_right = 379.0
+offset_bottom = -94.0
+scale = Vector2(0.972436, 0.983582)
+theme_override_colors/font_color = Color(0.0784314, 0.596078, 0.862745, 1)
+theme_override_fonts/font = ExtResource("7_p1ate")
+theme_override_font_sizes/font_size = 8
+text = "Lmao"
