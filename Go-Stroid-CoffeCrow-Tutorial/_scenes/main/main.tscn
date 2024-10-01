@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://blrqmvpy6ntjf"]
+
+[node name="Main" type="Node2D"]
+
+[node name="UI_Container" type="CanvasLayer" parent="."]
+
+[node name="Level_Container" type="Node2D" parent="."]
+
+[node name="Entity_Container" type="Node2D" parent="."]
