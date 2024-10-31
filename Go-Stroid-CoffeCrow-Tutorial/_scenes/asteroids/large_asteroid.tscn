@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://shopgd7hg4po"]
+
+[ext_resource type="PackedScene" uid="uid://bj3mg2e0tr2uf" path="res://_scenes/components/screen_wrap_component.tscn" id="1_0sfw1"]
+[ext_resource type="Script" path="res://_scenes/asteroids/large_asteroid.gd" id="1_u70ms"]
+[ext_resource type="Texture2D" uid="uid://bwe2cm2vy2xih" path="res://assets/kenney_pixel-ui-pack/Spritesheet/UIpackSheet_transparent.png" id="2_4kqfa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k3bdq"]
+radius = 26.0
+
+[node name="LargeAsteroid" type="CharacterBody2D"]
+script = ExtResource("1_u70ms")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("2_4kqfa")
+region_enabled = true
+region_rect = Rect2(73, 397, 14, 14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_k3bdq")
+
+[node name="ScreenWrapComponent" parent="." instance=ExtResource("1_0sfw1")]
