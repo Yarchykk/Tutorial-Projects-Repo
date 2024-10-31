@@ -1,9 +1,20 @@
-[gd_scene format=3 uid="uid://blrqmvpy6ntjf"]
+[gd_scene load_steps=3 format=3 uid="uid://blrqmvpy6ntjf"]
+
+[ext_resource type="PackedScene" uid="uid://chqdt5cr6i6gv" path="res://_scenes/level/level_1.tscn" id="1_7bbjj"]
+[ext_resource type="PackedScene" uid="uid://cwjceo6sbbqwt" path="res://_scenes/player/player_ship.tscn" id="2_b5dan"]
 
 [node name="Main" type="Node2D"]
 
 [node name="UI_Container" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="level_1" parent="UI_Container" instance=ExtResource("1_7bbjj")]
+z_as_relative = false
 
 [node name="Level_Container" type="Node2D" parent="."]
 
 [node name="Entity_Container" type="Node2D" parent="."]
+position = Vector2(1, 0)
+
+[node name="PlayerShip" parent="Entity_Container" instance=ExtResource("2_b5dan")]
+position = Vector2(320, 180)
