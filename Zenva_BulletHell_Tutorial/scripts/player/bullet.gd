@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Bullet
+
 func _ready() -> void:
 	pass
 

@@ -3,7 +3,7 @@ extends CharacterBody2D
 var speed: int = 75
 var direction : Vector2	= Vector2(0,1)
 
-@onready var bullet = preload("res://scenes/player/bullet.tscn")
+@onready var bullet_pool : BulletPool = get_node("BulletPool")
 
 func _physics_process(delta: float) -> void:
 	var inputDir : Vector2 = Vector2(
@@ -30,11 +30,11 @@ func _physics_process(delta: float) -> void:
 	get_node("SpawnPoint").position = direction*10
 	
 	if Input.is_action_pressed("Shoot"):
-		var bulletTemp = bullet.instantiate()
+		var bulletTemp : Bullet = bullet_pool.get_bullet()
 		bulletTemp.velocity = direction*100
 		bulletTemp.global_position = get_node("SpawnPoint").global_position
-		get_node("Bullets").add_child(bulletTemp)
+		bulletTemp.show()
+		
 	
 	velocity = inputDir * speed
 	move_and_slide()
-	print(inputDir)
