@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://rj6iwv02r2vc"]
+
+[ext_resource type="Texture2D" uid="uid://dsned5gwyme5l" path="res://assets/Bullet-Hell-Assets/monster sprites/guardian_serpent_old.png" id="1_fltdl"]
+[ext_resource type="Script" uid="uid://dh484ujr6qtky" path="res://scripts/enemy/snake_mob.gd" id="1_yabw1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yabw1"]
+radius = 11.0
+height = 26.0
+
+[node name="SnakeMob" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_yabw1")
+
+[node name="GuardianSerpentOld" type="Sprite2D" parent="."]
+texture = ExtResource("1_fltdl")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_yabw1")

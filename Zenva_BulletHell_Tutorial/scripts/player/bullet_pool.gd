@@ -7,22 +7,28 @@ var pool_size : int = 10
 var bullet_pool : Array = []
 
 func _ready() -> void:
+	##Init Bullet Pool
 	for i in range(pool_size):
 		var bullet_temp : Bullet = bullet_scene.instantiate()
 		bullet_temp.hide()
 		bullet_pool.append(bullet_temp)
 		add_child(bullet_temp)
 
+
 func get_bullet() -> Bullet:
+	##Return Bullet if it is not being used
 	for bullet in bullet_pool:
 		if not bullet.visible:
 			return bullet
 	
+	##If all bullets in poll are being used 
+	##Add a new bullet to pool
 	var new_bullet : Bullet = bullet_scene.instantiate()
 	new_bullet.hide()
 	bullet_pool.append(new_bullet)
 	add_child(new_bullet)
 	return new_bullet
+
 
 func reset_bullet(bullet:Bullet)-> void:
 	bullet.position = Vector2(-1000,-1000)

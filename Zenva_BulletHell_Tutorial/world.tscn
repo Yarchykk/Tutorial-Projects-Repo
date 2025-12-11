@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://oxe7jx4tt2ef"]
+[gd_scene load_steps=7 format=4 uid="uid://oxe7jx4tt2ef"]
 
 [ext_resource type="Texture2D" uid="uid://cfk0tvthxuf8i" path="res://assets/Bullet-Hell-Assets/floor tiles/atlus_floor_tiles.png" id="1_f3sb7"]
 [ext_resource type="PackedScene" uid="uid://c4j0qsp8kkkh4" path="res://scenes/player/player.tscn" id="2_fj7yv"]
+[ext_resource type="Script" uid="uid://cucpy1cxxos2q" path="res://mob_pooling.gd" id="4_036b0"]
+[ext_resource type="Texture2D" uid="uid://ced8f5dya3vlc" path="res://assets/Bullet-Hell-Assets/spawner.png" id="5_dwbse"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fj7yv"]
 texture = ExtResource("1_f3sb7")
@@ -30,3 +32,24 @@ rendering_quadrant_size = 32
 
 [node name="Player" parent="." instance=ExtResource("2_fj7yv")]
 position = Vector2(173, 141)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 1000
+limit_bottom = 700
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="Portal" type="Node2D" parent="."]
+position = Vector2(290, 47)
+script = ExtResource("4_036b0")
+
+[node name="Spawner" type="Sprite2D" parent="Portal"]
+texture = ExtResource("5_dwbse")
+
+[node name="Timer" type="Timer" parent="Portal"]
+autostart = true
+
+[connection signal="timeout" from="Portal/Timer" to="Portal" method="_on_timer_timeout"]
